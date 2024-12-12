@@ -56,19 +56,19 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto">
-                    <a href="{{route('index')}}" class="nav-item nav-link active">Home</a>
-                    <a href="{{route('about')}}" class="nav-item nav-link">About</a>
+                    <a href="{{route('index')}}" class="nav-item nav-link active">Bosh sahifa</a>
+                    <a href="{{route('about')}}" class="nav-item nav-link">Biz haqimizda</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Sotuv bo'limi</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="{{route('property-list')}}" class="dropdown-item">Property List</a>
-                            <a href="{{route('property-type')}}" class="dropdown-item">Property Type</a>
-                            <a href="{{route('property-agent')}}" class="dropdown-item">Property Agent</a>
+                            <a href="{{route('property-list')}}" class="dropdown-item">Uylar</a>
+{{--                            <a href="{{route('property-type')}}" class="dropdown-item">Property Type</a>--}}
+                            <a href="{{route('property-agent')}}" class="dropdown-item">Sotuv Agentlari</a>
                         </div>
                     </div>
                     <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Add Property</a>
+{{--                <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Add Property</a>--}}
             </div>
         </nav>
     </div>
