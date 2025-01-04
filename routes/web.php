@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HouseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,7 @@ Route::get('about',[\App\Http\Controllers\HomeController::class,'about'])->name(
 Route::get('property-list',[\App\Http\Controllers\HomeController::class,'property_list'])->name("property-list");
 Route::get('property-type',[\App\Http\Controllers\HomeController::class,'property_type'])->name("property-type");
 Route::get('property-agent',[\App\Http\Controllers\HomeController::class,'property_agent'])->name("property-agent");
+
+
+Route::get('/admin',[\App\Http\Controllers\AdminController::class,'index'])->name("admin.index");
+Route::resource('houses', HouseController::class);
