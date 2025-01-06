@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feedback;
 use App\Models\Home;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $houses=Home::all();
+            $feedbacks = Feedback::where('status', 1)->get();
+        return view('index',[
+            'houses' => $houses,
+            'feedbacks' => $feedbacks
+        ]);
     }
 
     /**
@@ -64,6 +70,7 @@ class HomeController extends Controller
     }
 
     public function contact(){
+
         return view('contact');
     }
     public function about(){
@@ -71,7 +78,10 @@ class HomeController extends Controller
     }
 
     public function property_list(){
-        return view('property-list');
+        $houses=Home::all();
+        return view('property-list',[
+            'houses'=>$houses
+        ]);
     }
 
     public function property_type(){

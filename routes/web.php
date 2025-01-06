@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HouseController;
+use App\Http\Controllers\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::get('property-agent',[\App\Http\Controllers\HomeController::class,'proper
 
 Route::get('/admin',[\App\Http\Controllers\AdminController::class,'index'])->name("admin.index");
 Route::resource('houses', HouseController::class);
+Route::resource('feedbacks', \App\Http\Controllers\FeedbackController::class);
+Route::get('/approve/{id}',[FeedbackController::class,'approve'])->name('approve');
