@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HouseController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,12 @@ Route::get('property-type',[\App\Http\Controllers\HomeController::class,'propert
 Route::get('property-agent',[\App\Http\Controllers\HomeController::class,'property_agent'])->name("property-agent");
 
 
-Route::get('/admin',[\App\Http\Controllers\AdminController::class,'index'])->name("admin.index");
-Route::resource('houses', HouseController::class);
-Route::resource('feedbacks', \App\Http\Controllers\FeedbackController::class);
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+Route::get('/admin',[\App\Http\Controllers\AdminController::class,'index'])->name("admin.index")->middleware('admin');
+Route::resource('houses', HouseController::class)->middleware('admin');
+Route::resource('feedbacks', \App\Http\Controllers\FeedbackController::class)->middleware('admin');
 Route::get('/approve/{id}',[FeedbackController::class,'approve'])->name('approve');
